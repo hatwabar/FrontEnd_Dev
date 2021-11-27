@@ -1,0 +1,28 @@
+h2{
+    color: #d9004f;
+    font-family: Verdana;
+}
+
+p{
+    color: #4a041e;
+    font-size: 18px;
+    font-family: Verdana;
+}
+
+/* This will make it so that the entire element button will have these specfied styles
+button{
+    background-color: #d9004f;
+}
+*/
+
+/* This will make it so that only this class of button will have these specfied styles */
+.btn{
+    background-color: #d9004f;
+    border: none;
+    padding: 10px;
+}
+
+/*This will allow us to have special affects when we hover over the button*/
+.btn:hover{
+    background-color: forestgreen;
+}
