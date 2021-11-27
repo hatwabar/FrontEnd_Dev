@@ -1,0 +1,735 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+
+
+/* Creating settings for the nav element, specifically class "navbar" */
+/* These settings are for the top row in black that will maintain its position at the top of the website even as user scrolls thru page */
+.navbar {
+    background: #131313; /* Make nav bar black */
+    height: 80px;
+    display: flex; /*A flex container expands items to fill available free space or shrinks them to prevent overflow. */
+    justify-content: center; /*Align the flex items at the center of the container */
+    align-items: center;
+    font-size: 1.2rem; /* 1 rem is = to 16 px*/
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
+/* Creating settings for the div element, specifically class "navbar__container" */
+/* These settings will affect were and how the navbar items will be placed in the container */
+.navbar__container {
+    display: flex;
+    justify-content: space-between; /*Items will have space between them*/
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 15px; /*Creates padding on the rightmost and leftmost sections of container*/
+}
+
+/* Settings for our logo: The "SOON" text on the upper left of the nav bar*/
+#navbar__logo { /*Since navbar__logo is an id not a class we dont use . we use # */
+    background-color: #ff99ff;
+    background-image: linear-gradient(to top, #5208ff, #ff99ff 100%);
+    background-size: 100%;
+    -webkit-background-clip: text; /*Show text instead of just background*/
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex; 
+    align-items: center; /*position texts in center of its alloated space*/
+    cursor: auto; /*cursor settings when hovering over the logo*/
+    font-size: 2.2rem; /*Font size of logo*/
+}
+
+
+.fa-gem {
+    margin-right: 0.5rem;
+}
+
+/*settings for navigation bar menu items: Home, Products, Cart, Sign In */
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+/*How high off the bottom of the nav bar will the list be*/
+.navbar__item {
+    height: 80px;
+}
+
+/*settings Navbar items in the list */
+.navbar__links {
+    color: #fff; /*Color of Home, Products, Cart text*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+}
+
+.navbar__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #bb62f7; /*Color of button itself*/
+    color: #fff; /*Color of text inside button*/
+}
+
+/*Setting for effect when pointer is hoovering over button*/
+.button:hover {
+    background: #4837ff;
+    transition: all 0.3s ease; /*Instead of instead hover effect color change delay by 0.3 secs*/ 
+}
+
+/*Settings for effect when hoovering pointer over the nav links such as Home, Products, and Cart*/
+.navbar__links:hover {
+    color: #bb62f7;
+    transition: all 0.3s ease;
+}
+
+/* MOBILE/TABLET RESPONSIVE PART */
+/*Media query, right when the screen hits 960pixels, we want to trigger these classes*/
+@media screen and (max-width: 960px) { 
+    .navbar__container {
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        z-index: 1;
+        width: 100%;
+        max-width: 1300px;
+        padding: 0;
+    }
+    
+    /*Setting to hide navbar menu  when page under 960px*/
+    .navbar__menu {
+        display: grid;
+        grid-template-columns: auto;
+        margin: 0;
+        width: 100%;
+        position: absolute;
+        top: -1000px; /* sets the dropdown menu in mobile mode, we put such a high value to ensures that dropdown will not be seen unless clicked */
+        opacity: 0; /*transparency level, 1 is defaultm making it 0 so we dont see it*/
+        transition: all 0.5s ease;
+        height: 50vh;
+        z-index: -1;
+        background: #131313;
+    }
+
+    /*Javascript will be used to trigger this */
+    .navbar__menu.active {
+        background: #131313;
+        top: 100%; /* This will Show the entire active menu */
+        opacity: 1; /*Setting opacity to 1 so we can actual see it */
+        transition: all 0.5s ease; /*Wait 0.5 secs to show affect*/
+        z-index: 99;
+        height: 50vh;
+        font-size: 1.6rem;
+    }
+    
+    /*Puts 25 px worth of padding to left of LOGO*/
+    #navbar__logo {
+        padding-left: 25px;
+    }
+
+    .navbar__toggle .bar {
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: #fff;
+    }
+    
+    .navbar__item {
+        width: 100%;
+    }
+
+    .navbar__links {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    #mobile-menu {
+        position: absolute;
+        top: 20%;
+        right: 5%;
+        transform: translate(5%, 20%);
+    }
+    
+    .navbar__btn {
+        padding-bottom: 2rem;
+    }
+
+    /*Updating how button looks like in drop down mobile menu*/
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%; /*Shrink button to 80% of usual size*/
+        height: 80px;
+        margin: 0;
+    }
+    
+    /*Creating 3 line bar that when clicked will drop menu down*/
+    /* Functionality is in  app.js from lines 1-9 */
+    /* Added <script src="app.js"></script> underneath </nav> to link app.js file */
+    .navbar__toggle .bar {
+        display: block;
+        cursor: pointer;
+    }
+    #mobile-menu.is-active .bar:nth-child(2) { /*Will need javascript */
+        opacity: 0;
+    }
+    #mobile-menu.is-active .bar:nth-child(1) {/*Will need javascript */
+        transform: translateY(8px) rotate(45deg);
+    }
+    #mobile-menu.is-active .bar:nth-child(3) {/*Will need javascript */
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    /**********************************************************/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* HERO SECTION CSS */
+/* Sets overall background color of webpage */
+.main {
+    background-color: #141414;
+}
+ 
+.main__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /*50-50 spilt in terms of screen space*/
+    align-items: center;
+    justify-self: center;
+    margin: 0 auto; /*Centers it*/
+    height: 90vh;
+    background-color: #141414;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 50px;
+}
+
+/*Settings for header 1, "NEXT GENERATION"*/
+.main__content h1 {
+    font-size: 4rem;
+    background-color: #ff8177;
+    background-image: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+    background-size: 100%;
+    /*replaces empty background color with actual text*/
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    /*Fills in color for text*/
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    }
+
+/*Settings for header 2, ""TECHNOLOGY*/
+.main__content h2 {
+    font-size: 4rem;
+    margin-top: 10px; /*Just adds a little more margin space between h1 and h2, not needed*/
+    background-color: #ff8177;
+    background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+/*Settings for paragraph under header 2 */
+.main__content p {
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+/*Settings for "Get Started" button shape */
+.main__btn {
+    font-size: 1rem;
+    background-image: linear-gradient(to top, #bb62f7 0%, #fe5196 100%);
+    padding: 14px 32px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 2rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.35s;
+    outline: none;
+}
+
+/*Settings for "Get Started" button text and hyperlink */
+.main__btn a {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-decoration: none;
+}
+
+/*Settings for hover effect when pointer is over it*/
+.main__btn:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #4837ff;
+    transition: all 0.35s;
+    border-radius: 4px;
+}
+.main__btn:hover {
+    color: #fff;
+}
+.main__btn:hover:after {
+    width: 100%;
+}
+/***************************************************/
+
+/*Code to make resizing image responsive to size of site*/
+.main__img--container {
+    text-align: center;
+}
+#main__img {
+    height: 80%;
+    width: 80%;
+}
+
+
+
+
+/* MOBILE RESPONSIVE PART */
+/*Updating webpage again but this time for when max width is 768 px*/
+@media screen and (max-width: 768px) {
+    /*Settings for website container and image placement when wdith is 768px*/
+    .main__container {
+        display: grid;
+        grid-template-columns: auto;
+        align-items: center;
+        justify-self: center;
+        width: 100%;
+        margin: 0 auto;
+        height: 90vh;
+    }
+    
+    /*Makes all the text and components ushc as buttons/images of the webpage to be centered*/
+    .main__content {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .main__content h1 {
+        font-size: 2.5rem;
+        margin-top: 2rem;
+    }
+  
+    .main__content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+  
+    .main__content p {
+        font-size: 1.5rem;
+    }
+    
+}
+
+/*Updating webpage again but this time for when max width is 480 px*/
+@media screen and (max-width: 480px) {
+    .main__content h1 {
+        font-size: 2rem;
+        margin-top: 3rem;
+    }
+  
+    .main__content h2 {
+        font-size: 2rem;
+    }
+  
+    .main__content p {
+        margin-top: 2rem;
+        font-size: 1.5rem;
+    }
+  
+    .main__btn {
+        padding: 12px 36px;
+        margin: 2.5rem 0;
+    }
+}
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*SERVICES SECTION CSS*/
+/* Sets overall background color of the services section of the webpage */
+/*Aligns all components of this section into center*/
+.services {
+    background: #141414;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/*Setting for header 1 of service section*/
+.services h1 {
+    background-color: #ff8177;
+    background-image: linear-gradient(
+        to right,
+        #ff8177 0%,
+        #ff867a 0%,
+        #ff8c7f 21%,
+        #f99185 52%,
+        #cf556c 78%,
+        #b12a5b 100%
+    );
+    background-size: 100%;
+    margin-bottom: 5rem; /*Creates space between h1 and next component*/
+    font-size: 2.5rem;
+    /*replaces empty background color with actual text*/
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    /*Fills in color for text with background image color*/
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+/*Setting for how components wil be lined up in the container*/
+.services__container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/*adding in image as background behind each services__card (h2, p, button)*/
+.services__card {
+    margin: 1rem;
+    height: 525px;
+    width: 400px;
+    border-radius: 4px;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(17, 17, 17, 0.6) 100%
+        ),
+        url('/images/model1.jpg');
+    background-size: cover;
+    position: relative;
+    color: #fff;
+}
+
+/*Setting for 2nd instance of services__card*/
+.services__card:nth-child(2) {
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(17, 17, 17, 0.9) 100%
+        ),
+        url('/images/male.png'); /*https://www.pexels.com/collections/fashion-w6q1n7s/*/
+}
+
+/*Setting for header 2 instances of the service section*/
+.services__card h2 {
+    position: absolute;
+    top: 350px; /*moving 350px from top*/
+    left: 30px; /*moving 30px from left*/
+}
+
+/*Setting for paragraph instances of the service section*/
+.services__card p {
+    position: absolute;
+    top: 400px;
+    left: 30px;
+}
+
+/*Seeting for moving button postion and beautfying it*/
+.services__card button {
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #bb62f7;
+    position: absolute;
+    top: 440px;
+    left: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.services__card button:hover {
+    transform: scale(1.075); /*When hovering over button increase size*/
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+/* 
+USE THIS IS U WANT TO HOVER ENTIRE SERVICE CARD INSTEAD OF JUST BUTTON
+.services__card:hover {
+    transform: scale(1.075);
+    transition: 0.2s ease-in;
+    cursor: pointer;
+}
+*/
+
+
+
+
+
+/*Making service section MOBILE RESPONSIVE*/
+/*Changing features if max width of page is 960px*/
+@media screen and (max-width: 960px) {
+    .services {
+        height: 1600px;
+    }
+  
+    .services h1 {
+        font-size: 2rem;
+        margin-top: 12rem;
+    }
+}
+/*Changing features if max width of page is 480px*/  
+@media screen and (max-width: 480px) {
+    .services {
+        height: 1400px;
+    }
+
+    .services h1 {
+        font-size: 1.2rem;
+    }
+
+    .services__card {
+        width: 300px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*FOOTER CSS*/
+
+/*Settings for background of entire footer container */
+.footer__container {
+    background-color: #141414;
+    padding: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Settings for the company logo*/
+#footer__logo {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+/*Setting for how components will be placed in container*/
+.footer__links {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+}
+
+/*Settings for main fields and their links*/
+.footer__link--wrapper {
+    display: flex;
+}
+
+/*making items/links under main fields to be displayed in columns */
+.footer__link--items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 16px;
+    text-align: left;
+    width: 160px;
+    box-sizing: border-box;
+}
+/* Creating space between main field and their links */  
+.footer__link--items h2 {
+    margin-bottom: 16px;
+}
+
+/*Setting white colored font for main fields or h2 headers*/
+.footer__link--items > h2 {
+    color: #fff;
+}
+
+/*Setting white colored font for hyperlinks*/
+.footer__link--items a {
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+  
+.footer__link--items a:hover {
+    color: #e9e9e9;
+    transition: 0.3s ease-out;
+}
+  
+
+/* Social Icons */
+/*Setting color for social media icons*/
+.social__icon--link {
+    color: #fff;
+    font-size: 24px;
+}
+
+/*Placing logo and social media icons to furthest left of page*/
+.social__media {
+    max-width: 1000px;
+    width: 100%;
+}
+
+/*Seperating logo from icons, logo furthest left of page and icons furthest right*/
+.social__media--wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto 0 auto;
+}
+
+/*Creating spaces between all socia media icons*/
+.social__icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 240px;
+}
+ 
+.website__rights {
+    color: #fff;
+}
+
+
+
+/*Making footer section MOBILE RESPONSIVE*/
+/*Changing features if max width of page is 820px*/
+@media screen and (max-width: 820px) {
+    .footer__links {
+        padding-top: 2rem;
+    }
+  
+    #footer__logo {
+        margin-bottom: 2rem;
+    }
+  
+    .website__rights {
+        margin-bottom: 2rem;
+    }
+  
+    .footer__link--wrapper {
+        flex-direction: column;
+    }
+  
+    .social__media--wrap {
+        flex-direction: column;
+    }
+}
+
+/*Changing features if max width of page is 480px*/
+@media screen and (max-width: 480px) {
+    .footer__link--items {
+        margin: 0;
+        padding: 10px;
+        width: 100%;
+    }
+}

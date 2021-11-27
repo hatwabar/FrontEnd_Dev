@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Made title Website-->
+    <title>Soon</title> <!--Name that will apeear on tab-->
+    <!--linking style.css to site to be used to modify/beautify font/style -->
+    <link rel="stylesheet" href="styles.css" />
+    <!--Add icon library/Link for icons-->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+      integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+      crossorigin="anonymous"
+    />
+</head>
+
+<body>
+    <!--NAVBAR SECTION-->
+    <!-- The <nav> tag represents a section of a page whose purpose is to provide navigation links -->
+    <nav class="navbar">
+        <!--The <div> tag is an empty container that is used to define a division or a section. It does not affect the content or layout and is used to group HTML elements to be styled with CSS or manipulated with scripts.-->
+        <div class="navbar__container"> 
+            <!--The <a> tag is used to create a hyperlink-->
+            <!--The href attribute is what link the hyperlink leads to-->
+            <a href="/" id="navbar__logo"><i class="fas fa-user-astronaut"></i>SOON</a>
+            <div class="navbar__toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <!--The ul tag represents an unordered list of items, typically rendered as a bulleted list.-->
+            <ul class="navbar__menu"> 
+                <!--The li tag represents an list item-->
+                <!--Making first navbar item-->
+                <li class="navbar__item">
+                    <a href="/" class="navbar__links">
+                        Home<!--First item in the ul(bulleted unordered list)-->
+                    </a>
+                </li>
+
+                <!--Making second navbar item-->
+                <!--href is link that will open once item is clicked as previously stated-->
+                <li class="navbar__item"> 
+                    <a href="/products.html" class="navbar__links">
+                        Products
+                    </a>
+                </li>
+
+                <!--Making 3rd navbar item-->
+                <li class="navbar__item"> 
+                    <a href="/" class="navbar__links"> 
+                        Cart
+                    </a>
+                </li>
+
+                <!--Making 4th navbar item but belonging to different class -->
+                <li class="navbar__btn"> 
+                    <a href="/" class="button"> 
+                        Sign In
+                    </a>
+                </li>
+
+            </ul>
+        </div> 
+    </nav>
+
+
+
+    <!--HERO SECTION-->
+    <div class="main">
+        <div class="main__container">
+            <div class="main__content">
+                <h1>UPPER ECHELON</h1>
+                <h2>CLOTHING TECHNOLOGY</h2>
+                <p>See what the hype is about!</p>
+                <!--Remember a tag is to create a hyperlink-->
+                <button class="main__btn"><a href="/">Sign Up Now</a></button>
+            </div>
+            <div class="main__img--container">
+                <!--alt is the description of the img-->
+                <!--https://undraw.co/-->
+                <img src="images/webpage.svg" alt="pic" id="main__img">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--SERVICES SECTION-->
+    <div class="services">
+        <h1>See what the hype is about!</h1>
+        <div class="services__container">
+            <div class="services__card">
+                <h2>Womens Collection</h2>
+                <p>Exploration or relaxation, we’ll provide the comfort,
+                    you take care of the rest.</p>
+                <button>Shop Womens</button>
+            </div>
+            <div class="services__card">
+                <h2>Mens Collection</h2>
+                <p>Be different from the rest</p>
+                <button>Shop Mens</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--FOOTER SECTION-->
+    <div class="footer__container">
+        <div class="footer__links">
+
+            <div class="footer__link--wrapper">
+                <div class="footer__link--items">
+                    <h2>About Us</h2>
+                    <a href="/">How it works</a>
+                    <a href="/">Testimonals</a>
+                    <a href="/">Careers</a>
+                    <a href="/">Investments</a>
+                    <a href="/">Terms of Service</a>
+                </div>
+                <div class="footer__link--items">
+                    <h2>Contact Us</h2>
+                    <a href="/">Contact</a>
+                    <a href="/">Support</a>
+                    <a href="/">Destinations</a>
+                    <a href="/">Sponsorships</a>
+                </div>
+            </div>
+            <div class="footer__link--wrapper">
+                <div class="footer__link--items">
+                    <h2>Social Media</h2>
+                    <a href="/">Instagram</a>
+                    <a href="/">Facebook</a>
+                    <a href="/">Twitter</a>
+                    <a href="/">Snapchat</a>
+                </div>
+            </div>
+        </div>
+
+    <div class="social__media">
+        <div class="social__media--wrap">
+            <div class="footer__logo">
+                <a href="/" id="footer__logo"><i class="fas fa-user-astronaut"></i>SOON</a>
+            </div>
+            <p class="website__rights">© SOON 2021. All rights reserved</p>
+            <div class="social__icons">
+
+                <a href="/" class="social__icon--link" target="_blank">
+                <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="/" class="social__icon--link" target="_blank">
+                <i class="fab fa-facebook"></i>
+                </a>
+
+                <a href="/" class="social__icon--link" target="_blank">
+                <i class="fab fa-twitter"></i>
+                </a>
+
+                <a href="/" class="social__icon--link" target="_blank">
+                <i class="fab fa-snapchat"></i>
+                </a>
+
+            </div>
+        </div>
+
+    </div>    
+    </div>
+
+    <script src="app.js"></script> 
+</body>
+</html>
